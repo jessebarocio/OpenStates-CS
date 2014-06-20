@@ -1,0 +1,150 @@
+﻿{
+	"last_name": "Hughes",
+	"updated_at": "2014-06-20 09:23:19",
+	"sources": [{
+		"url": "http://le.utah.gov/house2/representatives.jsp"
+	},
+	{
+		"url": "http://le.utah.gov/house2/detail.jsp?i=HUGHEGH"
+	}],
+	"full_name": "Gregory H Hughes",
+	"old_roles": {
+		"2011-2012": [{
+			"term": "2011-2012",
+			"end_date": null,
+			"district": "51",
+			"chamber": "lower",
+			"state": "ut",
+			"party": "Republican",
+			"type": "member",
+			"start_date": null
+		},
+		{
+			"term": "2011-2012",
+			"committee_id": "UTC000014",
+			"chamber": "lower",
+			"state": "ut",
+			"subcommittee": null,
+			"committee": "Education Committee",
+			"position": "member",
+			"type": "committee member"
+		},
+		{
+			"term": "2011-2012",
+			"committee_id": "UTC000019",
+			"chamber": "lower",
+			"state": "ut",
+			"subcommittee": null,
+			"committee": "Law Enforcement and Criminal Justice Committee",
+			"position": "member",
+			"type": "committee member"
+		}]
+	},
+	"id": "UTL000064",
+	"first_name": "Gregory",
+	"middle_name": "H",
+	"district": "51",
+	"state": "ut",
+	"votesmart_id": "50283",
+	"party": "Republican",
+	"email": "greghughes@le.utah.gov",
+	"all_ids": ["UTL000064"],
+	"leg_id": "UTL000064",
+	"active": true,
+	"transparencydata_id": "de0ef9ead2d84d38a7bdcd9ffe2e53cc",
+	"photo_url": "http://le.utah.gov/images/legislator/hughegh.jpg",
+	"roles": [{
+		"term": "2013-2014",
+		"end_date": null,
+		"district": "51",
+		"chamber": "lower",
+		"state": "ut",
+		"party": "Republican",
+		"type": "member",
+		"start_date": null
+	},
+	{
+		"term": "2013-2014",
+		"committee_id": "UTC000053",
+		"chamber": "joint",
+		"state": "ut",
+		"subcommittee": null,
+		"committee": "Occupational and Professional Licensure Review Committee",
+		"position": "member",
+		"type": "committee member"
+	},
+	{
+		"term": "2013-2014",
+		"committee_id": "UTC000075",
+		"chamber": "joint",
+		"state": "ut",
+		"subcommittee": null,
+		"committee": "Education Committee",
+		"position": "member",
+		"type": "committee member"
+	},
+	{
+		"term": "2013-2014",
+		"committee_id": "UTC000083",
+		"chamber": "joint",
+		"state": "ut",
+		"subcommittee": null,
+		"committee": "Executive Appropriations Committee",
+		"position": "member",
+		"type": "committee member"
+	},
+	{
+		"term": "2013-2014",
+		"committee_id": "UTC000085",
+		"chamber": "joint",
+		"state": "ut",
+		"subcommittee": null,
+		"committee": "Legislative Management Committee",
+		"position": "member",
+		"type": "committee member"
+	},
+	{
+		"term": "2013-2014",
+		"committee_id": "UTC000100",
+		"chamber": "joint",
+		"state": "ut",
+		"subcommittee": null,
+		"committee": "Education Interim Committee",
+		"position": "member",
+		"type": "committee member"
+	},
+	{
+		"term": "2013-2014",
+		"committee_id": "UTC000105",
+		"chamber": "joint",
+		"state": "ut",
+		"subcommittee": null,
+		"committee": "Executive Offices and Criminal Justice Appropriations Subcommittee",
+		"position": "member",
+		"type": "committee member"
+	},
+	{
+		"term": "2013-2014",
+		"committee_id": "UTC000120",
+		"chamber": "joint",
+		"state": "ut",
+		"subcommittee": null,
+		"committee": "Prison Relocation Commission",
+		"position": "member",
+		"type": "committee member"
+	}],
+	"url": "http://le.utah.gov/house2/detail.jsp?i=HUGHEGH",
+	"country": "us",
+	"created_at": "2011-01-14 22:24:08",
+	"level": "state",
+	"chamber": "lower",
+	"offices": [{
+		"fax": null,
+		"name": "Home",
+		"phone": null,
+		"address": "472 MIDLAKE DR DRAPER, UT 84020",
+		"type": "district",
+		"email": null
+	}],
+	"suffixes": ""
+}
