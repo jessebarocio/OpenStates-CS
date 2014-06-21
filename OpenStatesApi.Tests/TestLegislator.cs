@@ -14,7 +14,7 @@ namespace OpenStatesApi.Tests
     public class TestLegislator
     {
         [Test(Description="Verifies mappings between OpenStates json and Legislator class are correct.")]
-        public void TestLegislatorDeserialization()
+        public void LegislatorDeserialization()
         {
             string jsonFile = "OpenStatesApi.Tests.TestData.Legislator1.json";
             using ( var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream( jsonFile ) )
