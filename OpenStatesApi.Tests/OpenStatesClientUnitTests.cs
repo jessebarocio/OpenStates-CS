@@ -24,7 +24,6 @@ namespace OpenStatesApi.Tests
         {
             // Setup a fake response
             fakeResponse = new HttpResponseMessage(HttpStatusCode.OK);
-            fakeResponse.Content = new StringContent(GetLegislatorJson(), Encoding.UTF8, "application/json");
             // Pass in a fake handler, which will return the response. 
             // The fake handler also allows us to inspect the HttpRequestMessage.
             fakeHttpHandler = new FakeHttpMessageHandler(fakeResponse);
@@ -45,27 +44,88 @@ namespace OpenStatesApi.Tests
         [Test]
         public async void GetLegislator_ReturnsLegislator()
         {
-            var result = await client.GetLegislator("UTC000014");
+            // Arrange
+            fakeResponse.Content = GetLegislatorContent();
+            // Act
+            var result = await client.GetLegislator("UTL000064");
+            // Assert
             Assert.IsInstanceOf<Legislator>(result);
         }
 
         [Test]
         public async void GetLegislator_MakesCorrectHttpCall()
         {
-            var result = await client.GetLegislator("UTC000014");
-            // Inspect the request
+            // Arrange
+            fakeResponse.Content = GetLegislatorContent();
+            // Act
+            var result = await client.GetLegislator("UTL000064");
+            // Assert
             var request = fakeHttpHandler.Request;
             Assert.AreEqual(HttpMethod.Get, request.Method);
-            Assert.AreEqual("http://openstates.org/api/v1/legislators/UTC000014?apikey=MyApiKey", request.RequestUri.ToString());
+            Assert.AreEqual("http://openstates.org/api/v1/legislators/UTL000064?apikey=MyApiKey", request.RequestUri.ToString());
         }
 
         [Test]
         [ExpectedException(typeof(OpenStatesHttpException))]
-        public async void GetLegislator_ThrowsCustomException()
+        public async void GetLegislator_ThrowsOpenStatesHttpException()
         {
-            // Make the response return an error status code.
+            // Arrange
+            fakeResponse.Content = GetLegislatorContent();
             fakeResponse.StatusCode = HttpStatusCode.BadRequest;
-            var result = await client.GetLegislator("UTC000014");
+            // Act
+            var result = await client.GetLegislator("UTL000064");
+            // Assert - should throw an OpenStatesHttpException
+        }
+
+
+        [Test]
+        public async void LegislatorGeoLookup_ReturnsIEnumerableOfLegislator()
+        {
+            // Arrange
+            fakeResponse.Content = GetLegislatorArrayContent();
+            // Act
+            var result = await client.LegislatorsGeoLookup(41.082303, -111.996914);
+            // Assert
+            Assert.IsInstanceOf<IEnumerable<Legislator>>(result);
+        }
+
+        [Test]
+        public async void LegislatorGeoLookup_MakesCorrectHttpCall()
+        {
+            // Arrange
+            fakeResponse.Content = GetLegislatorArrayContent();
+            // Act
+            var result = await client.LegislatorsGeoLookup(41.082303, -111.996914);
+            // Assert
+            var request = fakeHttpHandler.Request;
+            Assert.AreEqual(HttpMethod.Get, request.Method);
+            Assert.AreEqual("http://openstates.org/api/v1/legislators/geo/?lat=41.082303&long=-111.996914&apikey=MyApiKey", request.RequestUri.ToString());
+        }
+
+        [Test]
+        [ExpectedException(typeof(OpenStatesHttpException))]
+        public async void LegislatorGeoLookup_ThrowsOpenStatesHttpException()
+        {
+            // Arrange
+            fakeResponse.Content = GetLegislatorArrayContent();
+            fakeResponse.StatusCode = HttpStatusCode.BadRequest;
+            // Act
+            var result = await client.LegislatorsGeoLookup(41.082303, -111.996914);
+            // Assert - should throw an OpenStatesHttpException
+        }
+
+
+        private static HttpContent GetLegislatorContent()
+        {
+            return new StringContent(GetLegislatorJson(), Encoding.UTF8, "application/json");
+        }
+
+        private static HttpContent GetLegislatorArrayContent()
+        {
+            return new StringContent(
+                String.Format("[{0}]", GetLegislatorJson()), 
+                Encoding.UTF8, 
+                "application/json");
         }
 
         private static string GetLegislatorJson()

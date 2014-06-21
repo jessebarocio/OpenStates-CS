@@ -44,7 +44,17 @@ namespace OpenStatesApi
 
         public async Task<IEnumerable<Legislator>> LegislatorsGeoLookup(double latitude, double longitude)
         {
-            throw new NotImplementedException();
+            try
+            {
+                string url = String.Format("legislators/geo/?lat={0}&long={1}&apikey={2}", latitude, longitude, apiToken);
+                var response = await client.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+                return await response.Content.ReadAsAsync<IEnumerable<Legislator>>();
+            }
+            catch (HttpRequestException e)
+            {
+                throw new OpenStatesHttpException("Unexpected response from server.", e);
+            }
         }
 
 
