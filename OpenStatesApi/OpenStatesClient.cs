@@ -42,6 +42,11 @@ namespace OpenStatesApi
             }
         }
 
+        public async Task<IEnumerable<Legislator>> LegislatorsGeoLookup(double latitude, double longitude)
+        {
+            throw new NotImplementedException();
+        }
+
 
         #region IDisposable Implementation
 

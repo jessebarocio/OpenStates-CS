@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace OpenStatesApi.Tests
 {
     [TestFixture(Category = "Unit Tests")]
-    public class TestOpenStatesClient
+    public class OpenStatesClientUnitTests
     {
         OpenStatesClient client;
         FakeHttpMessageHandler fakeHttpHandler;
@@ -29,6 +29,17 @@ namespace OpenStatesApi.Tests
             // The fake handler also allows us to inspect the HttpRequestMessage.
             fakeHttpHandler = new FakeHttpMessageHandler(fakeResponse);
             client = new OpenStatesClient("MyApiKey", fakeHttpHandler);
+        }
+
+        [TearDown]
+        public void TearDown()
+        {
+            fakeResponse.Dispose();
+            fakeResponse = null;
+            fakeHttpHandler.Dispose();
+            fakeHttpHandler = null;
+            client.Dispose();
+            client = null;
         }
 
         [Test]
