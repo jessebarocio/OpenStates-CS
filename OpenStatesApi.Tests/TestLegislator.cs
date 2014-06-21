@@ -76,11 +76,10 @@ namespace OpenStatesApi.Tests
                 Assert.AreEqual( null, role2.Subcommittee );
                 Assert.AreEqual( "UTC000053", role2.CommitteeId );
                 Assert.AreEqual( "member", role2.Position );
-                // Test the count on OldRoles.
+                // Test the count on OldRoles. Role serialization was covered by the above tests.
                 Assert.AreEqual( 1, legislator.OldRoles.Count );
                 Assert.AreEqual( 3, legislator.OldRoles["2011-2012"].Count() );
             }
-
         }
     }
 }
