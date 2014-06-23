@@ -114,6 +114,61 @@ namespace OpenStatesApi.Tests
             // Assert - should throw an OpenStatesHttpException
         }
 
+        [Test]
+        public async void LegislatorSearch_ReturnsIEnumerableOfLegislator()
+        {
+            // Arrange
+            fakeResponse.Content = GetLegislatorArrayContent();
+            // Act
+            var result = await client.LegislatorSearch();
+            // Assert
+            Assert.IsInstanceOf<IEnumerable<Legislator>>( result );
+        }
+
+        [Test]
+        public async void LegislatorSearch_MakesCorrectHttpCall()
+        {
+            // Arrange
+            fakeResponse.Content = GetLegislatorArrayContent();
+            // Act
+            var result = await client.LegislatorSearch();
+            // Assert
+            var request = fakeHttpHandler.Request;
+            Assert.AreEqual( HttpMethod.Get, request.Method );
+            Assert.AreEqual( "http://openstates.org/api/v1/legislators/?apikey=MyApiKey", request.RequestUri.ToString() );
+        }
+
+        [Test]
+        public async void LegislatorSearch_MakesCorrectHttpCallWithParameters()
+        {
+            // Arrange
+            fakeResponse.Content = GetLegislatorArrayContent();
+            // Act
+            var result = await client.LegislatorSearch(
+                state: State.UT,
+                firstName: "Jerry",
+                chamber: Chamber.Upper);
+            // Assert
+            var request = fakeHttpHandler.Request;
+            Assert.AreEqual( HttpMethod.Get, request.Method );
+            Assert.AreEqual( "http://openstates.org/api/v1/legislators/?state=UT&first_name=Jerry&chamber=Upper&apikey=MyApiKey", request.RequestUri.ToString() );
+        }
+
+        [Test]
+        [ExpectedException( typeof( OpenStatesHttpException ) )]
+        public async void LegislatorSearch_ThrowsOpenStatesHttpException()
+        {
+            // Arrange
+            fakeResponse.Content = GetLegislatorArrayContent();
+            fakeResponse.StatusCode = HttpStatusCode.BadRequest;
+            // Act
+            var result = await client.LegislatorSearch(
+                state: State.UT,
+                firstName: "Jerry",
+                chamber: Chamber.Upper );
+            // Assert - should throw an OpenStatesHttpException
+        }
+
 
         private static HttpContent GetLegislatorContent()
         {

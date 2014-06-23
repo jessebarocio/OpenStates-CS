@@ -60,6 +60,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chamber.cs" />
+    <Compile Include="ExtensionMethods.cs" />
     <Compile Include="JsonConverters\RoleTypeConverter.cs" />
     <Compile Include="Legislator.cs" />
     <Compile Include="Office.cs" />
