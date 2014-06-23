@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Formatting;
 using System.Text;
@@ -29,32 +30,24 @@ namespace OpenStatesApi
 
         public async Task<Legislator> GetLegislator( string id )
         {
-            try
-            {
-                string url = String.Format( "legislators/{0}?apikey={1}", id, apiToken );
-                var response = await client.GetAsync( url );
-                response.EnsureSuccessStatusCode();
-                return await response.Content.ReadAsAsync<Legislator>();
-            }
-            catch ( HttpRequestException e )
-            {
-                throw new OpenStatesHttpException( "Unexpected response from server.", e );
-            }
+            var urlParameters = new Dictionary<string, string>();
+            urlParameters.Add( "apikey", apiToken );
+            string url = String.Format( "legislators/{0}", id ) + urlParameters.ToQueryString();
+            var response = await client.GetAsync( url );
+            response.Check();
+            return await response.Content.ReadAsAsync<Legislator>();
         }
 
         public async Task<IEnumerable<Legislator>> LegislatorsGeoLookup( double latitude, double longitude )
         {
-            try
-            {
-                string url = String.Format( "legislators/geo/?lat={0}&long={1}&apikey={2}", latitude, longitude, apiToken );
-                var response = await client.GetAsync( url );
-                response.EnsureSuccessStatusCode();
-                return await response.Content.ReadAsAsync<IEnumerable<Legislator>>();
-            }
-            catch ( HttpRequestException e )
-            {
-                throw new OpenStatesHttpException( "Unexpected response from server.", e );
-            }
+            var urlParameters = new Dictionary<string, string>();
+            urlParameters.Add( "lat", latitude.ToString() );
+            urlParameters.Add( "long", longitude.ToString() );
+            urlParameters.Add( "apikey", apiToken );
+            string url = "legislators/geo/" + urlParameters.ToQueryString();
+            var response = await client.GetAsync( url );
+            response.Check();
+            return await response.Content.ReadAsAsync<IEnumerable<Legislator>>();
         }
 
         public async Task<IEnumerable<Legislator>> LegislatorSearch( State? state = null, string firstName = null,
@@ -92,17 +85,11 @@ namespace OpenStatesApi
             }
             urlParameters.Add( "apikey", apiToken );
             string url = "legislators/" + urlParameters.ToQueryString();
-            try
-            {
-                var response = await client.GetAsync( url );
-                response.EnsureSuccessStatusCode();
-                return await response.Content.ReadAsAsync<IEnumerable<Legislator>>();
-            }
-            catch ( HttpRequestException e )
-            {
-                throw new OpenStatesHttpException( "Unexpected response from server.", e );
-            }
+            var response = await client.GetAsync( url );
+            response.Check();
+            return await response.Content.ReadAsAsync<IEnumerable<Legislator>>();
         }
+
 
         #region IDisposable Implementation
 
