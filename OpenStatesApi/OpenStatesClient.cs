@@ -28,6 +28,33 @@ namespace OpenStatesApi
             apiToken = apiKey;
         }
 
+        #region Metadata Methods
+
+        public async Task<IEnumerable<MetadataOverview>> Metadata()
+        {
+            var urlParameters = new Dictionary<string, string>();
+            urlParameters.Add( "apikey", apiToken );
+            string url = "metadata" + urlParameters.ToQueryString();
+            var response = await client.GetAsync( url );
+            response.Check();
+            return await response.Content.ReadAsAsync<IEnumerable<MetadataOverview>>();
+        }
+
+        public async Task<Metadata> Metadata( State state )
+        {
+            var urlParameters = new Dictionary<string, string>();
+            urlParameters.Add( "apikey", apiToken );
+            string url = String.Format( "metadata/{0}", state.ToString() ) + urlParameters.ToQueryString();
+            var response = await client.GetAsync( url );
+            response.Check();
+            return await response.Content.ReadAsAsync<Metadata>();
+        }
+
+        #endregion
+
+
+        #region Legislator Methods
+
         public async Task<Legislator> GetLegislator( string id )
         {
             var urlParameters = new Dictionary<string, string>();
@@ -89,6 +116,8 @@ namespace OpenStatesApi
             response.Check();
             return await response.Content.ReadAsAsync<IEnumerable<Legislator>>();
         }
+
+        #endregion
 
 
         #region IDisposable Implementation

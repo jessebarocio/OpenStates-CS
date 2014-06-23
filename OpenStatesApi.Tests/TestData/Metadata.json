@@ -1,0 +1,64 @@
+﻿[
+ { "name": "Alabama",
+  "abbreviation": "al",
+  "feature_flags": [ "subjects", "influenceexplorer" ],
+  "chambers": {
+   "upper": { "name": "Senate", "title": "Senator" },
+   "lower": { "name": "House", "title": "Representative" }
+  } },
+ { "name": "Alaska",
+  "abbreviation": "ak",
+  "feature_flags": [ "subjects", "influenceexplorer" ],
+  "chambers": {
+   "upper": { "name": "Senate", "title": "Senator" },
+   "lower": { "name": "House", "title": "Representative" }
+  } },
+ { "name": "Arizona",
+  "abbreviation": "az",
+  "feature_flags": [ "events", "influenceexplorer" ],
+  "chambers": {
+   "upper": { "name": "Senate", "title": "Senator" },
+   "lower": { "name": "House", "title": "Representative" }
+  } },
+ { "name": "Arkansas",
+  "abbreviation": "ar",
+  "feature_flags": [ "influenceexplorer" ],
+  "chambers": {
+   "upper": { "name": "Senate", "title": "Senator" },
+   "lower": { "name": "House", "title": "Representative" }
+  } },
+ { "name": "California",
+  "abbreviation": "ca",
+  "feature_flags": [ "subjects", "influenceexplorer" ],
+  "chambers": {
+   "upper": { "name": "Senate", "title": "Senator" },
+   "lower": { "name": "Assembly", "title": "Assemblymember" }
+  } },
+ { "name": "Colorado",
+  "abbreviation": "co",
+  "feature_flags": [ "influenceexplorer" ],
+  "chambers": {
+   "upper": { "name": "Senate", "title": "Senator" },
+   "lower": { "name": "House", "title": "Representative" }
+  } },
+ { "name": "Connecticut",
+  "abbreviation": "ct",
+  "feature_flags": [ "subjects", "events", "influenceexplorer" ],
+  "chambers": {
+   "upper": { "name": "Senate", "title": "Senator" },
+   "lower": { "name": "House", "title": "Representative" }
+  } },
+ { "name": "Delaware",
+  "abbreviation": "de",
+  "feature_flags": [ "events", "influenceexplorer" ],
+  "chambers": {
+   "upper": { "name": "Senate", "title": "Senator" },
+   "lower": { "name": "House", "title": "Representative" }
+  } },
+ { "name": "District of Columbia",
+  "abbreviation": "dc",
+  "feature_flags": [],
+  "chambers": {
+   "upper": { "name": "Council", "title": "Councilmember" }
+  } }
+]

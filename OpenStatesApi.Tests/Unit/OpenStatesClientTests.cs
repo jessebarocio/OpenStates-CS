@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace OpenStatesApi.Tests.Unit
 {
-    [TestFixture(Category = "Unit Tests")]
+    [TestFixture( Category = "Unit Tests" )]
     public class OpenStatesClientTests
     {
         OpenStatesClient client;
@@ -23,11 +23,11 @@ namespace OpenStatesApi.Tests.Unit
         public void SetUp()
         {
             // Setup a fake response
-            fakeResponse = new HttpResponseMessage(HttpStatusCode.OK);
+            fakeResponse = new HttpResponseMessage( HttpStatusCode.OK );
             // Pass in a fake handler, which will return the response. 
             // The fake handler also allows us to inspect the HttpRequestMessage.
-            fakeHttpHandler = new FakeHttpMessageHandler(fakeResponse);
-            client = new OpenStatesClient("MyApiKey", fakeHttpHandler);
+            fakeHttpHandler = new FakeHttpMessageHandler( fakeResponse );
+            client = new OpenStatesClient( "MyApiKey", fakeHttpHandler );
         }
 
         [TearDown]
@@ -47,9 +47,9 @@ namespace OpenStatesApi.Tests.Unit
             // Arrange
             fakeResponse.Content = GetLegislatorContent();
             // Act
-            var result = await client.GetLegislator("UTL000064");
+            var result = await client.GetLegislator( "UTL000064" );
             // Assert
-            Assert.IsInstanceOf<Legislator>(result);
+            Assert.IsInstanceOf<Legislator>( result );
         }
 
         [Test]
@@ -58,22 +58,22 @@ namespace OpenStatesApi.Tests.Unit
             // Arrange
             fakeResponse.Content = GetLegislatorContent();
             // Act
-            var result = await client.GetLegislator("UTL000064");
+            var result = await client.GetLegislator( "UTL000064" );
             // Assert
             var request = fakeHttpHandler.Request;
-            Assert.AreEqual(HttpMethod.Get, request.Method);
-            Assert.AreEqual("http://openstates.org/api/v1/legislators/UTL000064?apikey=MyApiKey", request.RequestUri.ToString());
+            Assert.AreEqual( HttpMethod.Get, request.Method );
+            Assert.AreEqual( "http://openstates.org/api/v1/legislators/UTL000064?apikey=MyApiKey", request.RequestUri.ToString() );
         }
 
         [Test]
-        [ExpectedException(typeof(OpenStatesHttpException))]
+        [ExpectedException( typeof( OpenStatesHttpException ) )]
         public async void GetLegislator_ThrowsOpenStatesHttpException()
         {
             // Arrange
             fakeResponse.Content = GetLegislatorContent();
             fakeResponse.StatusCode = HttpStatusCode.BadRequest;
             // Act
-            var result = await client.GetLegislator("UTL000064");
+            var result = await client.GetLegislator( "UTL000064" );
             // Assert - should throw an OpenStatesHttpException
         }
 
@@ -84,9 +84,9 @@ namespace OpenStatesApi.Tests.Unit
             // Arrange
             fakeResponse.Content = GetLegislatorArrayContent();
             // Act
-            var result = await client.LegislatorsGeoLookup(41.082303, -111.996914);
+            var result = await client.LegislatorsGeoLookup( 41.082303, -111.996914 );
             // Assert
-            Assert.IsInstanceOf<IEnumerable<Legislator>>(result);
+            Assert.IsInstanceOf<IEnumerable<Legislator>>( result );
         }
 
         [Test]
@@ -95,22 +95,22 @@ namespace OpenStatesApi.Tests.Unit
             // Arrange
             fakeResponse.Content = GetLegislatorArrayContent();
             // Act
-            var result = await client.LegislatorsGeoLookup(41.082303, -111.996914);
+            var result = await client.LegislatorsGeoLookup( 41.082303, -111.996914 );
             // Assert
             var request = fakeHttpHandler.Request;
-            Assert.AreEqual(HttpMethod.Get, request.Method);
-            Assert.AreEqual("http://openstates.org/api/v1/legislators/geo/?lat=41.082303&long=-111.996914&apikey=MyApiKey", request.RequestUri.ToString());
+            Assert.AreEqual( HttpMethod.Get, request.Method );
+            Assert.AreEqual( "http://openstates.org/api/v1/legislators/geo/?lat=41.082303&long=-111.996914&apikey=MyApiKey", request.RequestUri.ToString() );
         }
 
         [Test]
-        [ExpectedException(typeof(OpenStatesHttpException))]
+        [ExpectedException( typeof( OpenStatesHttpException ) )]
         public async void LegislatorGeoLookup_ThrowsOpenStatesHttpException()
         {
             // Arrange
             fakeResponse.Content = GetLegislatorArrayContent();
             fakeResponse.StatusCode = HttpStatusCode.BadRequest;
             // Act
-            var result = await client.LegislatorsGeoLookup(41.082303, -111.996914);
+            var result = await client.LegislatorsGeoLookup( 41.082303, -111.996914 );
             // Assert - should throw an OpenStatesHttpException
         }
 
@@ -147,7 +147,7 @@ namespace OpenStatesApi.Tests.Unit
             var result = await client.LegislatorSearch(
                 state: State.UT,
                 firstName: "Jerry",
-                chamber: Chamber.Upper);
+                chamber: Chamber.Upper );
             // Assert
             var request = fakeHttpHandler.Request;
             Assert.AreEqual( HttpMethod.Get, request.Method );
@@ -170,24 +170,75 @@ namespace OpenStatesApi.Tests.Unit
         }
 
 
+        [Test]
+        public async void Metadata_MakesCorrectHttpCall()
+        {
+            // Arrange
+            fakeResponse.Content = GetContentFromEmbeddedJsonResource( "OpenStatesApi.Tests.TestData.Metadata.json" );
+            // Act
+            var result = await client.Metadata();
+            // Assert
+            var request = fakeHttpHandler.Request;
+            Assert.AreEqual( HttpMethod.Get, request.Method );
+            Assert.AreEqual( "http://openstates.org/api/v1/metadata?apikey=MyApiKey", request.RequestUri.ToString() );
+        }
+
+        [Test]
+        public async void Metadata_MakesCorrectHttpCallWithState()
+        {
+            // Arrange
+            fakeResponse.Content = GetContentFromEmbeddedJsonResource( "OpenStatesApi.Tests.TestData.FullMetadata.json" );
+            // Act
+            var result = await client.Metadata( State.UT );
+            // Assert
+            var request = fakeHttpHandler.Request;
+            Assert.AreEqual( HttpMethod.Get, request.Method );
+            Assert.AreEqual( "http://openstates.org/api/v1/metadata/UT?apikey=MyApiKey", request.RequestUri.ToString() );
+        }
+
+        private static HttpContent GetContentFromEmbeddedJsonResource( string resourcePath )
+        {
+            using ( var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream( resourcePath ) )
+            using ( var reader = new StreamReader( stream ) )
+            {
+                return new StringContent( reader.ReadToEnd(), Encoding.UTF8, "application/json" );
+            }
+        }
+
+
         private static HttpContent GetLegislatorContent()
         {
-            return new StringContent(GetLegislatorJson(), Encoding.UTF8, "application/json");
+            return new StringContent( GetLegislatorJson(), Encoding.UTF8, "application/json" );
         }
 
         private static HttpContent GetLegislatorArrayContent()
         {
             return new StringContent(
-                String.Format("[{0}]", GetLegislatorJson()), 
-                Encoding.UTF8, 
-                "application/json");
+                String.Format( "[{0}]", GetLegislatorJson() ),
+                Encoding.UTF8,
+                "application/json" );
+        }
+
+        private static HttpContent GetMetadataContent()
+        {
+            return new StringContent( GetMetadataJson(), Encoding.UTF8, "application/json" );
         }
 
         private static string GetLegislatorJson()
         {
-            string jsonFile = "OpenStatesApi.Tests.TestData.Legislator1.json";
-            using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(jsonFile))
-            using (var reader = new StreamReader(stream))
+            string jsonFile = "OpenStatesApi.Tests.TestData.Legislator.json";
+            using ( var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream( jsonFile ) )
+            using ( var reader = new StreamReader( stream ) )
+            {
+                return reader.ReadToEnd();
+            }
+        }
+
+        private static string GetMetadataJson()
+        {
+            string jsonFile = "OpenStatesApi.Tests.TestData.Metadata.json";
+            using ( var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream( jsonFile ) )
+            using ( var reader = new StreamReader( stream ) )
             {
                 return reader.ReadToEnd();
             }
