@@ -59,9 +59,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Fakes\FakeHttpMessageHandler.cs" />
-    <Compile Include="OpenStatesClientIntegrationTests.cs" />
+    <Compile Include="Integration\OpenStatesClientTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="OpenStatesClientUnitTests.cs" />
+    <Compile Include="Unit\OpenStatesClientTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

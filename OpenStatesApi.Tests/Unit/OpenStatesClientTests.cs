@@ -10,10 +10,10 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OpenStatesApi.Tests
+namespace OpenStatesApi.Tests.Unit
 {
     [TestFixture(Category = "Unit Tests")]
-    public class OpenStatesClientUnitTests
+    public class OpenStatesClientTests
     {
         OpenStatesClient client;
         FakeHttpMessageHandler fakeHttpHandler;

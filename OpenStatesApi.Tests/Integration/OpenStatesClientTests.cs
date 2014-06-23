@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace OpenStatesApi.Tests
 {
     [TestFixture(Category="Integration Tests")]
-    public class OpenStatesClientIntegrationTests
+    public class OpenStatesClientTests
     {
         [Test]
         public async void GetLegislator_ReturnsCorrectData()
