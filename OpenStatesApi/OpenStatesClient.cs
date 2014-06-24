@@ -122,15 +122,26 @@ namespace OpenStatesApi
 
         private async Task<T> MakeRequest<T>( string baseUrl, IDictionary<string, string> parameters = null )
         {
-            if ( parameters == null )
+            try
             {
-                parameters = new Dictionary<string, string>();
+                if ( parameters == null )
+                {
+                    parameters = new Dictionary<string, string>();
+                }
+                parameters.Add( "apikey", apiKey );
+                string url = baseUrl + parameters.ToQueryString();
+                var response = await client.GetAsync( url );
+                response.Check();
+                return await response.Content.ReadAsAsync<T>();
             }
-            parameters.Add( "apikey", apiKey );
-            string url = baseUrl + parameters.ToQueryString();
-            var response = await client.GetAsync( url );
-            response.Check();
-            return await response.Content.ReadAsAsync<T>();
+            catch ( OpenStatesException )
+            {
+                throw;
+            }
+            catch ( Exception e )
+            {
+                throw new OpenStatesException( "Operation failed.", e );
+            }
         }
 
 

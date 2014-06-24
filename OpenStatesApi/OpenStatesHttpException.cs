@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace OpenStatesApi
 {
-    public class OpenStatesHttpException : Exception
+    public class OpenStatesHttpException : OpenStatesException
     {
         public HttpStatusCode StatusCode { get; set; }
 

@@ -72,6 +72,7 @@
     <Compile Include="Office.cs" />
     <Compile Include="OfficeType.cs" />
     <Compile Include="OpenStatesClient.cs" />
+    <Compile Include="OpenStatesException.cs" />
     <Compile Include="OpenStatesHttpException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Role.cs" />
