@@ -38,10 +38,10 @@ You will need an API key to work with the Open States API. One can be obtained f
 
 ## What's left to do
 
-- ~Metadata methods~
+- ~~Metadata methods~~
 - Bill methods
-- ~Legislator methods~
+- ~~Legislator methods~~
 - Committee methods
 - Event methods
-- ~District methods~
+- ~~District methods~~
 
