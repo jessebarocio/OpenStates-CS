@@ -190,6 +190,19 @@ namespace OpenStatesApi.Tests.Unit
 
         #endregion
 
+        [Test]
+        public async void DistrictBoundaryLookup_MakesCorrectHttpCall()
+        {
+            // Arrange
+            fakeResponse.Content = GetContentFromEmbeddedJsonResource( "OpenStatesApi.Tests.TestData.DistrictBoundary.json" );
+            // Act
+            var result = await client.DistrictBoundaryLookup( "sldl/ut-22" );
+            // Assert
+            var request = fakeHttpHandler.Request;
+            Assert.AreEqual( HttpMethod.Get, request.Method );
+            Assert.AreEqual( "http://openstates.org/api/v1/districts/boundary/sldl/ut-22?apikey=MyApiKey", request.RequestUri.ToString() );
+        }
+
 
         private static HttpContent GetContentFromEmbeddedJsonResource( string resourcePath )
         {

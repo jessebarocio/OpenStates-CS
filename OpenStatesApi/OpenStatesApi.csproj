@@ -62,7 +62,9 @@
     <Compile Include="Chamber.cs" />
     <Compile Include="ChamberDetails.cs" />
     <Compile Include="District.cs" />
+    <Compile Include="DistrictBoundary.cs" />
     <Compile Include="ExtensionMethods.cs" />
+    <Compile Include="JsonConverters\DistrictPolygonConverter.cs" />
     <Compile Include="JsonConverters\RoleTypeConverter.cs" />
     <Compile Include="Legislator.cs" />
     <Compile Include="LegislatorOverview.cs" />

@@ -14,6 +14,7 @@ namespace OpenStatesApi
         [JsonProperty( "boundary_id" )]
         public string BoundaryId { get; set; }
         public Chamber Chamber { get; set; }
+        public string Id { get; set; }
         public IEnumerable<DistrictLegislatorDetail> Legislators { get; set; }
         public string Name { get; set; }
         [JsonProperty( "num_seats" )]

@@ -137,6 +137,17 @@ namespace OpenStatesApi
             return await response.Content.ReadAsAsync<IEnumerable<District>>();
         }
 
+        public async Task<DistrictBoundary> DistrictBoundaryLookup( string boundaryId )
+        {
+            var urlParameters = new Dictionary<string, string>();
+            urlParameters.Add( "apikey", apiToken );
+            string url = String.Format( "districts/boundary/{0}", boundaryId );
+            url += urlParameters.ToQueryString();
+            var response = await client.GetAsync( url );
+            response.Check();
+            return await response.Content.ReadAsAsync<DistrictBoundary>();
+        }
+
         #endregion
 
 
