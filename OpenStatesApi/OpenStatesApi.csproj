@@ -64,6 +64,7 @@
     <Compile Include="ExtensionMethods.cs" />
     <Compile Include="JsonConverters\RoleTypeConverter.cs" />
     <Compile Include="Legislator.cs" />
+    <Compile Include="LegislatorOverview.cs" />
     <Compile Include="MetadataOverview.cs" />
     <Compile Include="Office.cs" />
     <Compile Include="OfficeType.cs" />

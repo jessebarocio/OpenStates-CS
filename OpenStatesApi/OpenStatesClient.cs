@@ -77,7 +77,7 @@ namespace OpenStatesApi
             return await response.Content.ReadAsAsync<IEnumerable<Legislator>>();
         }
 
-        public async Task<IEnumerable<Legislator>> LegislatorSearch( State? state = null, string firstName = null,
+        public async Task<IEnumerable<LegislatorOverview>> LegislatorSearch( State? state = null, string firstName = null,
             string lastName = null, Chamber? chamber = null, bool active = true, string term = null, string district = null,
             string party = null )
         {
@@ -114,7 +114,7 @@ namespace OpenStatesApi
             string url = "legislators/" + urlParameters.ToQueryString();
             var response = await client.GetAsync( url );
             response.Check();
-            return await response.Content.ReadAsAsync<IEnumerable<Legislator>>();
+            return await response.Content.ReadAsAsync<IEnumerable<LegislatorOverview>>();
         }
 
         #endregion

@@ -67,8 +67,9 @@
     <None Include="app.config" />
     <None Include="packages.config" />
     <EmbeddedResource Include="TestData\Legislator.json" />
-    <EmbeddedResource Include="TestData\Metadata.json" />
-    <EmbeddedResource Include="TestData\FullMetadata.json" />
+    <EmbeddedResource Include="TestData\MetadataOverview.json" />
+    <EmbeddedResource Include="TestData\MetadataFull.json" />
+    <EmbeddedResource Include="TestData\LegislatorArray.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenStatesApi\OpenStatesApi.csproj">
