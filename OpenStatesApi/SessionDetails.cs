@@ -12,8 +12,8 @@ namespace OpenStatesApi
         [JsonProperty( "display_name" )]
         public string DisplayName { get; set; }
         [JsonProperty( "start_date" )]
-        public DateTime StartDate { get; set; }
+        public DateTime? StartDate { get; set; }
         [JsonProperty( "end_date" )]
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
     }
 }

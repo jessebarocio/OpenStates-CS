@@ -41,6 +41,40 @@ namespace OpenStatesApi.Tests.Unit
             client = null;
         }
 
+
+        #region Test Metadata Methods
+
+        [Test]
+        public async void Metadata_MakesCorrectHttpCall()
+        {
+            // Arrange
+            fakeResponse.Content = GetContentFromEmbeddedJsonResource( "OpenStatesApi.Tests.TestData.MetadataOverview.json" );
+            // Act
+            var result = await client.Metadata();
+            // Assert
+            var request = fakeHttpHandler.Request;
+            Assert.AreEqual( HttpMethod.Get, request.Method );
+            Assert.AreEqual( "http://openstates.org/api/v1/metadata?apikey=MyApiKey", request.RequestUri.ToString() );
+        }
+
+        [Test]
+        public async void Metadata_MakesCorrectHttpCallWithState()
+        {
+            // Arrange
+            fakeResponse.Content = GetContentFromEmbeddedJsonResource( "OpenStatesApi.Tests.TestData.MetadataFull.json" );
+            // Act
+            var result = await client.Metadata( State.UT );
+            // Assert
+            var request = fakeHttpHandler.Request;
+            Assert.AreEqual( HttpMethod.Get, request.Method );
+            Assert.AreEqual( "http://openstates.org/api/v1/metadata/UT?apikey=MyApiKey", request.RequestUri.ToString() );
+        } 
+
+        #endregion
+
+
+        #region Test Legislator Methods
+
         [Test]
         public async void GetLegislator_MakesCorrectHttpCall()
         {
@@ -134,35 +168,27 @@ namespace OpenStatesApi.Tests.Unit
                 firstName: "Jerry",
                 chamber: Chamber.Upper );
             // Assert - should throw an OpenStatesHttpException
-        }
+        } 
 
+        #endregion
+
+
+        #region Test District Methods
 
         [Test]
-        public async void Metadata_MakesCorrectHttpCall()
+        public async void DistrictSearch_MakesCorrectHttpCall()
         {
             // Arrange
-            fakeResponse.Content = GetContentFromEmbeddedJsonResource( "OpenStatesApi.Tests.TestData.MetadataOverview.json" );
+            fakeResponse.Content = GetContentFromEmbeddedJsonResource( "OpenStatesApi.Tests.TestData.DistrictSearch.json" );
             // Act
-            var result = await client.Metadata();
+            var result = await client.DistrictSearch(State.UT);
             // Assert
             var request = fakeHttpHandler.Request;
             Assert.AreEqual( HttpMethod.Get, request.Method );
-            Assert.AreEqual( "http://openstates.org/api/v1/metadata?apikey=MyApiKey", request.RequestUri.ToString() );
+            Assert.AreEqual( "http://openstates.org/api/v1/districts/UT?apikey=MyApiKey", request.RequestUri.ToString() );
         }
 
-        [Test]
-        public async void Metadata_MakesCorrectHttpCallWithState()
-        {
-            // Arrange
-            fakeResponse.Content = GetContentFromEmbeddedJsonResource( "OpenStatesApi.Tests.TestData.MetadataFull.json" );
-            // Act
-            var result = await client.Metadata( State.UT );
-            // Assert
-            var request = fakeHttpHandler.Request;
-            Assert.AreEqual( HttpMethod.Get, request.Method );
-            Assert.AreEqual( "http://openstates.org/api/v1/metadata/UT?apikey=MyApiKey", request.RequestUri.ToString() );
-        }
-
+        #endregion
 
 
         private static HttpContent GetContentFromEmbeddedJsonResource( string resourcePath )

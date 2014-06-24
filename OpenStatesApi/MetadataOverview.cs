@@ -9,6 +9,8 @@ namespace OpenStatesApi
 {
     public class MetadataOverview
     {
+        [JsonProperty( "abbreviation" )]
+        public State State { get; set; }
         public string Abbreviation { get; set; }
         public string Name { get; set; }
         public IDictionary<Chamber, ChamberDetails> Chambers { get; set; }

@@ -28,6 +28,7 @@ namespace OpenStatesApi
             apiToken = apiKey;
         }
 
+
         #region Metadata Methods
 
         public async Task<IEnumerable<MetadataOverview>> Metadata()
@@ -115,6 +116,25 @@ namespace OpenStatesApi
             var response = await client.GetAsync( url );
             response.Check();
             return await response.Content.ReadAsAsync<IEnumerable<LegislatorOverview>>();
+        }
+
+        #endregion
+
+        #region District Methods
+
+        public async Task<IEnumerable<District>> DistrictSearch(State state, Chamber? chamber = null)
+        {
+            var urlParameters = new Dictionary<string, string>();
+            urlParameters.Add( "apikey", apiToken );
+            string url = String.Format( "districts/{0}", state.ToString() );
+            if ( chamber.HasValue )
+            {
+                url += String.Format( "/{0}", chamber.ToString() );
+            }
+            url += urlParameters.ToQueryString();
+            var response = await client.GetAsync( url );
+            response.Check();
+            return await response.Content.ReadAsAsync<IEnumerable<District>>();
         }
 
         #endregion

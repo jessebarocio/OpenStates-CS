@@ -70,6 +70,7 @@
     <EmbeddedResource Include="TestData\MetadataOverview.json" />
     <EmbeddedResource Include="TestData\MetadataFull.json" />
     <EmbeddedResource Include="TestData\LegislatorArray.json" />
+    <EmbeddedResource Include="TestData\DistrictSearch.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenStatesApi\OpenStatesApi.csproj">

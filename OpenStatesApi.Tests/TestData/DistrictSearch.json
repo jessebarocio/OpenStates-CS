@@ -1,0 +1,47 @@
+﻿[
+ { "abbr": "nc",
+  "boundary_id": "sldl/nc-1",
+  "chamber": "lower",
+  "id": "nc-lower-1",
+  "legislators": [
+   { "full_name": "Bob Steinburg", "leg_id": "NCL000302" }
+  ],
+  "name": "1",
+  "num_seats": 1 },
+ { "abbr": "nc",
+  "boundary_id": "sldl/nc-12",
+  "chamber": "lower",
+  "id": "nc-lower-12",
+  "legislators": [
+   { "full_name": "George Graham", "leg_id": "NCL000281" }
+  ],
+  "name": "12",
+  "num_seats": 1 },
+ { "abbr": "nc",
+  "boundary_id": "sldl/nc-13",
+  "chamber": "lower",
+  "id": "nc-lower-13",
+  "legislators": [
+   { "full_name": "Pat McElraft", "leg_id": "NCL000137" }
+  ],
+  "name": "13",
+  "num_seats": 1 },
+ { "abbr": "nc",
+  "boundary_id": "sldl/nc-14",
+  "chamber": "lower",
+  "id": "nc-lower-14",
+  "legislators": [
+   { "full_name": "George G Cleveland", "leg_id": "NCL000076" }
+  ],
+  "name": "14",
+  "num_seats": 1 },
+ { "abbr": "nc",
+  "boundary_id": "sldl/nc-15",
+  "chamber": "lower",
+  "id": "nc-lower-15",
+  "legislators": [
+   { "full_name": "Phil R Shepard", "leg_id": "NCL000221" }
+  ],
+  "name": "15",
+  "num_seats": 1 }
+]
