@@ -30,7 +30,7 @@ namespace OpenStatesApi.Tests
                 Assert.AreEqual("H", legislator.MiddleName);
                 Assert.AreEqual("Hughes", legislator.LastName);
                 Assert.AreEqual("", legislator.Suffixes);
-                Assert.AreEqual("http://le.utah.gov/images/legislator/hughegh.jpg", legislator.PhotoUrl);
+                StringAssert.AreEqualIgnoringCase("http://le.utah.gov/images/legislator/hughegh.jpg", legislator.PhotoUrl);
                 Assert.AreEqual("http://le.utah.gov/house2/detail.jsp?i=HUGHEGH", legislator.Url);
                 Assert.AreEqual(DateTime.Parse("2011-01-14 22:24:08"), legislator.CreatedAt);
                 Assert.AreEqual("de0ef9ead2d84d38a7bdcd9ffe2e53cc", legislator.TransparencyDataId);
@@ -40,13 +40,16 @@ namespace OpenStatesApi.Tests
                 Assert.AreEqual(OfficeType.District, office.Type);
                 Assert.AreEqual("Home", office.Name);
                 Assert.AreEqual("472 MIDLAKE DR DRAPER, UT 84020", office.Address);
-                Assert.AreEqual(null, office.Phone);
+                Assert.AreEqual("801-432-0362", office.Phone);
                 Assert.AreEqual(null, office.Fax);
-                Assert.AreEqual(null, office.Email);
+                Assert.AreEqual("greghughes@le.utah.gov", office.Email);
                 // Roles. Test the count and make sure the first couple are correct.
+                // The data in this test will need to be updated with each session in
+                // order to remain current. May want to investigate alternative ways
+                // to test integration.
                 Assert.AreEqual(8, legislator.Roles.Count());
                 var role1 = legislator.Roles.ElementAt(0);
-                Assert.AreEqual("2013-2014", role1.Term);
+                Assert.AreEqual("2015-2016", role1.Term);
                 Assert.AreEqual(Chamber.Lower, role1.Chamber);
                 Assert.AreEqual(State.UT, role1.State);
                 Assert.AreEqual(null, role1.StartDate);
@@ -59,7 +62,7 @@ namespace OpenStatesApi.Tests
                 Assert.AreEqual(null, role1.CommitteeId);
                 Assert.AreEqual(null, role1.Position);
                 var role2 = legislator.Roles.ElementAt(1);
-                Assert.AreEqual("2013-2014", role2.Term);
+                Assert.AreEqual("2015-2016", role2.Term);
                 Assert.AreEqual(Chamber.Joint, role2.Chamber);
                 Assert.AreEqual(State.UT, role2.State);
                 Assert.AreEqual(null, role2.StartDate);
@@ -67,13 +70,14 @@ namespace OpenStatesApi.Tests
                 Assert.AreEqual(RoleType.CommitteeMember, role2.Type);
                 Assert.AreEqual(null, role2.Party);
                 Assert.AreEqual(null, role2.District);
-                Assert.AreEqual("Occupational and Professional Licensure Review Committee", role2.Committee);
+                Assert.AreEqual("Legislative Management Committee", role2.Committee);
                 Assert.AreEqual(null, role2.Subcommittee);
-                Assert.AreEqual("UTC000053", role2.CommitteeId);
-                Assert.AreEqual("member", role2.Position);
+                Assert.AreEqual("UTC000085", role2.CommitteeId);
+                Assert.AreEqual("Vice Chair", role2.Position);
                 // Test the count on OldRoles. Role serialization was covered by the above tests.
-                Assert.AreEqual(1, legislator.OldRoles.Count);
+                Assert.AreEqual(2, legislator.OldRoles.Count);
                 Assert.AreEqual(3, legislator.OldRoles["2011-2012"].Count());
+                Assert.AreEqual(8, legislator.OldRoles["2013-2014"].Count());
             }
         }
     }
