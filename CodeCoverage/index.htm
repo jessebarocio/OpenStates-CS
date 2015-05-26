@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html data-ng-app="coverageApp">
+<head>
+<meta charset="utf-8" />
+<title>Summary - Coverage Report</title>
+<link rel="stylesheet" type="text/css" href="report.css" />
+</head><body data-ng-controller="SummaryViewCtrl"><div class="container">
+<h1>Summary</h1>
+<table class="overview">
+<colgroup>
+<col style="width: 135px;" />
+<col />
+</colgroup>
+<tbody>
+<tr><th>Generated on:</th><td>5/26/2015 - 9:09:07 AM</td></tr>
+<tr><th>Parser:</th><td>OpenCoverParser</td></tr>
+<tr><th>Assemblies:</th><td>1</td></tr>
+<tr><th>Classes:</th><td>22</td></tr>
+<tr><th>Files:</th><td>18</td></tr>
+<tr><th>Covered lines:</th><td>232</td></tr>
+<tr><th>Uncovered lines:</th><td>20</td></tr>
+<tr><th>Coverable lines:</th><td>252</td></tr>
+<tr><th>Total lines:</th><td>909</td></tr>
+<tr><th>Line Coverage:</th><td>92%</td></tr>
+<tr><th>Branch coverage:</th><td>73.9%</td></tr>
+</tbody>
+</table>
+<h1>Assemblies</h1>
+<div data-ng-if="filteringEnabled" data-reactive-table data-data="assemblies"></div>
+<div data-ng-if="!filteringEnabled">
+<div id="filterButtonContainer" class="customizebox" style="display: none;"><input data-ng-click="enableFiltering()" value="Enable filtering" title="This may take some time since the report contains many classes." type="submit" /></div>
+<script type="text/javascript">
+/* <![CDATA[ */
+document.getElementById('filterButtonContainer').style.display = 'block';
+/* ]]> */
+</script>
+</div>
+<table data-ng-if="!filteringEnabled" class="overview">
+<colgroup>
+<col />
+<col style="width: 90px;" />
+<col style="width: 105px;" />
+<col style="width: 100px;" />
+<col style="width: 70px;" />
+<col style="width: 60px;" />
+<col style="width: 112px;" />
+<col style="width: 60px;" />
+<col style="width: 112px;" />
+</colgroup>
+<thead><tr><th>Name</th><th class="right">Covered</th><th class="right">Uncovered</th><th class="right">Coverable</th><th class="right">Total</th><th class="center" colspan="2">Line Coverage</th><th class="center" colspan="2">Branch coverage</th></tr></thead>
+<tbody>
+<tr><th>OpenStatesApi</th><th class="right">232</th><th class="right">20</th><th class="right">252</th><th class="right">909</th><th title="LineCoverage" class="right">92%</th><th><table class="coverage"><tr><td class="green" style="width: 92px;">&nbsp;</td><td class="red" style="width: 8px;">&nbsp;</td></tr></table></th><th class="right">73.9%</th><th><table class="coverage"><tr><td class="green" style="width: 74px;">&nbsp;</td><td class="red" style="width: 26px;">&nbsp;</td></tr></table></th></tr>
+<tr><td><a href="OpenStatesApi_ChamberDetails.htm">OpenStatesApi.ChamberDetails</a></td><td class="right">2</td><td class="right">0</td><td class="right">2</td><td class="right">13</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_Committee.htm">OpenStatesApi.Committee</a></td><td class="right">10</td><td class="right">0</td><td class="right">10</td><td class="right">28</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_CommitteeMember.htm">OpenStatesApi.CommitteeMember</a></td><td class="right">3</td><td class="right">0</td><td class="right">3</td><td class="right">17</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_CommitteeOverview.htm">OpenStatesApi.CommitteeOverview</a></td><td class="right">8</td><td class="right">0</td><td class="right">8</td><td class="right">24</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_District.htm">OpenStatesApi.District</a></td><td class="right">7</td><td class="right">0</td><td class="right">7</td><td class="right">31</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_DistrictBoundary.htm">OpenStatesApi.DistrictBoundary</a></td><td class="right">8</td><td class="right">0</td><td class="right">8</td><td class="right">54</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_DistrictBoundaryRegion.htm">OpenStatesApi.DistrictBoundaryRegion</a></td><td class="right">4</td><td class="right">0</td><td class="right">4</td><td class="right">54</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_DistrictLegislatorDetail.htm">OpenStatesApi.DistrictLegislatorDetail</a></td><td class="right">2</td><td class="right">0</td><td class="right">2</td><td class="right">31</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_DistrictPolygon.htm">OpenStatesApi.DistrictPolygon</a></td><td class="right">4</td><td class="right">0</td><td class="right">4</td><td class="right">54</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_ExtensionMethods.htm">OpenStatesApi.ExtensionMethods</a></td><td class="right">12</td><td class="right">4</td><td class="right">16</td><td class="right">44</td><td title="LineCoverage" class="right">75%</td><td><table class="coverage"><tr><td class="green" style="width: 75px;">&nbsp;</td><td class="red" style="width: 25px;">&nbsp;</td></tr></table></td><td class="right">66.6%</td><td><table class="coverage"><tr><td class="green" style="width: 67px;">&nbsp;</td><td class="red" style="width: 33px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_DistrictPolygonConverter.htm">OpenStatesApi.JsonConverters.DistrictPolygonConverter</a></td><td class="right">14</td><td class="right">2</td><td class="right">16</td><td class="right">45</td><td title="LineCoverage" class="right">87.5%</td><td><table class="coverage"><tr><td class="green" style="width: 88px;">&nbsp;</td><td class="red" style="width: 12px;">&nbsp;</td></tr></table></td><td class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_RoleTypeConverter.htm">OpenStatesApi.JsonConverters.RoleTypeConverter</a></td><td class="right">4</td><td class="right">3</td><td class="right">7</td><td class="right">38</td><td title="LineCoverage" class="right">57.1%</td><td><table class="coverage"><tr><td class="green" style="width: 57px;">&nbsp;</td><td class="red" style="width: 43px;">&nbsp;</td></tr></table></td><td class="right">66.6%</td><td><table class="coverage"><tr><td class="green" style="width: 67px;">&nbsp;</td><td class="red" style="width: 33px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_Legislator.htm">OpenStatesApi.Legislator</a></td><td class="right">20</td><td class="right">0</td><td class="right">20</td><td class="right">43</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_LegislatorOverview.htm">OpenStatesApi.LegislatorOverview</a></td><td class="right">18</td><td class="right">0</td><td class="right">18</td><td class="right">40</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_Metadata.htm">OpenStatesApi.Metadata</a></td><td class="right">14</td><td class="right">0</td><td class="right">14</td><td class="right">37</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_MetadataOverview.htm">OpenStatesApi.MetadataOverview</a></td><td class="right">4</td><td class="right">1</td><td class="right">5</td><td class="right">20</td><td title="LineCoverage" class="right">80%</td><td><table class="coverage"><tr><td class="green" style="width: 80px;">&nbsp;</td><td class="red" style="width: 20px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_Office.htm">OpenStatesApi.Office</a></td><td class="right">6</td><td class="right">0</td><td class="right">6</td><td class="right">17</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_OpenStatesClient.htm">OpenStatesApi.OpenStatesClient</a></td><td class="right">72</td><td class="right">8</td><td class="right">80</td><td class="right">201</td><td title="LineCoverage" class="right">90%</td><td><table class="coverage"><tr><td class="green" style="width: 90px;">&nbsp;</td><td class="red" style="width: 10px;">&nbsp;</td></tr></table></td><td class="right">73.6%</td><td><table class="coverage"><tr><td class="green" style="width: 74px;">&nbsp;</td><td class="red" style="width: 26px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_Point.htm">OpenStatesApi.Point</a></td><td class="right">2</td><td class="right">0</td><td class="right">2</td><td class="right">54</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_Role.htm">OpenStatesApi.Role</a></td><td class="right">12</td><td class="right">0</td><td class="right">12</td><td class="right">27</td><td title="LineCoverage" class="right">100%</td><td><table class="coverage"><tr><td class="green" style="width: 100px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_SessionDetails.htm">OpenStatesApi.SessionDetails</a></td><td class="right">3</td><td class="right">1</td><td class="right">4</td><td class="right">19</td><td title="LineCoverage" class="right">75%</td><td><table class="coverage"><tr><td class="green" style="width: 75px;">&nbsp;</td><td class="red" style="width: 25px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+<tr><td><a href="OpenStatesApi_Term.htm">OpenStatesApi.Term</a></td><td class="right">3</td><td class="right">1</td><td class="right">4</td><td class="right">18</td><td title="LineCoverage" class="right">75%</td><td><table class="coverage"><tr><td class="green" style="width: 75px;">&nbsp;</td><td class="red" style="width: 25px;">&nbsp;</td></tr></table></td><td class="right"></td><td><table class="coverage"><tr><td class="gray" style="width: 100px;">&nbsp;</td></tr></table></td></tr>
+</tbody>
+</table>
+<script type="text/javascript">
+/* <![CDATA[ */
+var assemblies = [
+  {
+    "name" : "OpenStatesApi",
+    "classes" : [
+    {  "name" : "OpenStatesApi.ChamberDetails", "reportPath" : "OpenStatesApi_ChamberDetails.htm", "coveredLines" : 2, "uncoveredLines" : 0, "coverableLines" : 2, "totalLines" : 13, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.Committee", "reportPath" : "OpenStatesApi_Committee.htm", "coveredLines" : 10, "uncoveredLines" : 0, "coverableLines" : 10, "totalLines" : 28, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.CommitteeMember", "reportPath" : "OpenStatesApi_CommitteeMember.htm", "coveredLines" : 3, "uncoveredLines" : 0, "coverableLines" : 3, "totalLines" : 17, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.CommitteeOverview", "reportPath" : "OpenStatesApi_CommitteeOverview.htm", "coveredLines" : 8, "uncoveredLines" : 0, "coverableLines" : 8, "totalLines" : 24, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.District", "reportPath" : "OpenStatesApi_District.htm", "coveredLines" : 7, "uncoveredLines" : 0, "coverableLines" : 7, "totalLines" : 31, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.DistrictBoundary", "reportPath" : "OpenStatesApi_DistrictBoundary.htm", "coveredLines" : 8, "uncoveredLines" : 0, "coverableLines" : 8, "totalLines" : 54, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.DistrictBoundaryRegion", "reportPath" : "OpenStatesApi_DistrictBoundaryRegion.htm", "coveredLines" : 4, "uncoveredLines" : 0, "coverableLines" : 4, "totalLines" : 54, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.DistrictLegislatorDetail", "reportPath" : "OpenStatesApi_DistrictLegislatorDetail.htm", "coveredLines" : 2, "uncoveredLines" : 0, "coverableLines" : 2, "totalLines" : 31, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.DistrictPolygon", "reportPath" : "OpenStatesApi_DistrictPolygon.htm", "coveredLines" : 4, "uncoveredLines" : 0, "coverableLines" : 4, "totalLines" : 54, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.ExtensionMethods", "reportPath" : "OpenStatesApi_ExtensionMethods.htm", "coveredLines" : 12, "uncoveredLines" : 4, "coverableLines" : 16, "totalLines" : 44, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 4, "totalBranches" : 6, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.JsonConverters.DistrictPolygonConverter", "reportPath" : "OpenStatesApi_DistrictPolygonConverter.htm", "coveredLines" : 14, "uncoveredLines" : 2, "coverableLines" : 16, "totalLines" : 45, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 4, "totalBranches" : 4, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.JsonConverters.RoleTypeConverter", "reportPath" : "OpenStatesApi_RoleTypeConverter.htm", "coveredLines" : 4, "uncoveredLines" : 3, "coverableLines" : 7, "totalLines" : 38, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 4, "totalBranches" : 6, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.Legislator", "reportPath" : "OpenStatesApi_Legislator.htm", "coveredLines" : 20, "uncoveredLines" : 0, "coverableLines" : 20, "totalLines" : 43, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.LegislatorOverview", "reportPath" : "OpenStatesApi_LegislatorOverview.htm", "coveredLines" : 18, "uncoveredLines" : 0, "coverableLines" : 18, "totalLines" : 40, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.Metadata", "reportPath" : "OpenStatesApi_Metadata.htm", "coveredLines" : 14, "uncoveredLines" : 0, "coverableLines" : 14, "totalLines" : 37, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.MetadataOverview", "reportPath" : "OpenStatesApi_MetadataOverview.htm", "coveredLines" : 4, "uncoveredLines" : 1, "coverableLines" : 5, "totalLines" : 20, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.Office", "reportPath" : "OpenStatesApi_Office.htm", "coveredLines" : 6, "uncoveredLines" : 0, "coverableLines" : 6, "totalLines" : 17, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.OpenStatesClient", "reportPath" : "OpenStatesApi_OpenStatesClient.htm", "coveredLines" : 72, "uncoveredLines" : 8, "coverableLines" : 80, "totalLines" : 201, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 56, "totalBranches" : 76, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.Point", "reportPath" : "OpenStatesApi_Point.htm", "coveredLines" : 2, "uncoveredLines" : 0, "coverableLines" : 2, "totalLines" : 54, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.Role", "reportPath" : "OpenStatesApi_Role.htm", "coveredLines" : 12, "uncoveredLines" : 0, "coverableLines" : 12, "totalLines" : 27, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.SessionDetails", "reportPath" : "OpenStatesApi_SessionDetails.htm", "coveredLines" : 3, "uncoveredLines" : 1, "coverableLines" : 4, "totalLines" : 19, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+    {  "name" : "OpenStatesApi.Term", "reportPath" : "OpenStatesApi_Term.htm", "coveredLines" : 3, "uncoveredLines" : 1, "coverableLines" : 4, "totalLines" : 18, "coverageType" : "LineCoverage", "methodCoverage" : "-", "coveredBranches" : 0, "totalBranches" : 0, "lineCoverageHistory" : [], "branchCoverageHistory" : [] },
+  ]},
+];
+/* ]]> */
+</script>
+<div class="footer">Generated by: ReportGenerator 2.1.4.0<br />5/26/2015 - 9:09:07 AM<br /><a href="http://www.palmmedia.de">www.palmmedia.de</a></div></div>
+<script type="text/javascript" src="combined.js"></script>
+</body></html>
