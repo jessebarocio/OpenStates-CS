@@ -61,6 +61,9 @@
   <ItemGroup>
     <Compile Include="Chamber.cs" />
     <Compile Include="ChamberDetails.cs" />
+    <Compile Include="Committee.cs" />
+    <Compile Include="CommitteeMember.cs" />
+    <Compile Include="CommitteeOverview.cs" />
     <Compile Include="District.cs" />
     <Compile Include="DistrictBoundary.cs" />
     <Compile Include="ExtensionMethods.cs" />

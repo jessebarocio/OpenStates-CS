@@ -100,6 +100,35 @@ namespace OpenStatesApi
         #endregion
 
 
+        #region Committee Methods
+
+        public async Task<Committee> GetCommittee(string id)
+        {
+            return await MakeRequest<Committee>(String.Format("committees/{0}", id));
+        }
+
+        public async Task<IEnumerable<CommitteeOverview>> CommitteeSearch(State? state = null, Chamber? chamber = null, string committeeName = null)
+        {
+            var urlParameters = new Dictionary<string, string>();
+            if (state != null)
+            {
+                urlParameters.Add("state", state.ToString());
+            }
+            if (chamber != null)
+            {
+                urlParameters.Add("chamber", chamber.ToString());
+            }
+            if (!String.IsNullOrEmpty(committeeName))
+            {
+                urlParameters.Add("committee", committeeName);
+            }
+            string url = "committees/";
+            return await MakeRequest<IEnumerable<CommitteeOverview>>( url, urlParameters );
+        }
+
+        #endregion
+
+
         #region District Methods
 
         public async Task<IEnumerable<District>> DistrictSearch( State state, Chamber? chamber = null )

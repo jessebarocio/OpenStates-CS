@@ -1,0 +1,41 @@
+﻿{
+    "committee": "Local Government",
+    "level": "state",
+    "country": "us",
+    "created_at": "2010-11-29 00:00:00",
+    "updated_at": "2015-05-25 04:48:59",
+    "all_ids": [ "PAC000007" ],
+    "parent_id": null,
+    "state": "pa",
+    "sources": [
+        {
+            "url": "http://www.legis.state.pa.us/cfdocs/legis/home/member_information/representatives_ca.cfm"
+        }
+    ],
+    "subcommittee": null,
+    "members": [
+        { "leg_id": "PAL000344", "role": "member", "name": "Dean, Madeleine" },
+        { "leg_id": "PAL000446", "role": "member", "name": "Farina, Frank" },
+        { "leg_id": "PAL000107", "role": " democratic chair", "name": "Freeman, Robert" },
+        { "leg_id": "PAL000450", "role": "member", "name": "Greiner, Keith J." },
+        { "leg_id": "PAL000129", "role": " chair", "name": "Harper, Kate" },
+        { "leg_id": "PAL000508", "role": "member", "name": "Irvin, Rich" },
+        { "leg_id": "PAL000453", "role": "member", "name": "James, R. Lee" },
+        { "leg_id": "PAL000454", "role": "member", "name": "Kim, Patty" },
+        { "leg_id": "PAL000290", "role": "member", "name": "Maloney, David M., Sr." },
+        { "leg_id": "PAL000458", "role": "member", "name": "McGinnis, John D" },
+        { "leg_id": "PAL000459", "role": "member", "name": "McNeill, Daniel T." },
+        { "leg_id": "PAL000517", "role": "member", "name": "Miller, Brett R." },
+        { "leg_id": "PAL000293", "role": "member", "name": "Mullery, Gerald J." },
+        { "leg_id": null, "role": "member", "name": "Rader, Jack, Jr." },
+        { "leg_id": "PAL000466", "role": "member", "name": "Sankey, Tommy" },
+        { "leg_id": "PAL000507", "role": "member", "name": "Santora, James R." },
+        { "leg_id": "PAL000474", "role": "member", "name": "Schreiber, Kevin J." },
+        { "leg_id": "PAL000469", "role": "member", "name": "Snyder, Pam" },
+        { "leg_id": "PAL000487", "role": "member", "name": "Warner, Ryan" },
+        { "leg_id": "PAL000512", "role": "member", "name": "Wheeland, Jeff C." },
+        { "leg_id": "PAL000514", "role": "member", "name": "Zimmerman, David H." }
+    ],
+    "chamber": "lower",
+    "id": "PAC000007", 
+    "votesmart_id": "11205" }

@@ -173,6 +173,81 @@ namespace OpenStatesApi.Tests.Unit
         #endregion
 
 
+        #region Test Committee Methods
+
+        [Test]
+        public async void GetCommittee_MakesCorrectHttpCall()
+        {
+            // Arrange
+            fakeResponse.Content = GetContentFromEmbeddedJsonResource("OpenStatesApi.Tests.TestData.Committee.json");
+            // Act
+            var result = await client.GetCommittee("PAC000007");
+            // Assert
+            var request = fakeHttpHandler.Request;
+            Assert.AreEqual(HttpMethod.Get, request.Method);
+            Assert.AreEqual("http://openstates.org/api/v1/committees/PAC000007?apikey=MyApiKey",
+                request.RequestUri.ToString());
+        }
+
+        [Test]
+        [ExpectedException(typeof (OpenStatesHttpException))]
+        public async void GetCommittee_ThrowsOpenStatesHttpException()
+        {
+            // Arrange
+            fakeResponse.Content = GetContentFromEmbeddedJsonResource("OpenStatesApi.Tests.TestData.Committee.json");
+            fakeResponse.StatusCode = HttpStatusCode.BadRequest;
+            // Act
+            var result = await client.GetCommittee("PAC000007");
+            // Assert - should throw an OpenStatesHttpException
+        }
+
+        [Test]
+        public async void CommitteeSearch_MakesCorrectHttpCall()
+        {
+            // Arrange
+            fakeResponse.Content = GetContentFromEmbeddedJsonResource( "OpenStatesApi.Tests.TestData.CommitteeArray.json" );
+            // Act
+            var result = await client.CommitteeSearch();
+            // Assert
+            var request = fakeHttpHandler.Request;
+            Assert.AreEqual(HttpMethod.Get, request.Method);
+            Assert.AreEqual("http://openstates.org/api/v1/committees/?apikey=MyApiKey", request.RequestUri.ToString());
+        }
+
+        [Test]
+        public async void CommitteeSearch_MakesCorrectHttpCallWithParameters()
+        {
+            // Arrange
+            fakeResponse.Content = GetContentFromEmbeddedJsonResource( "OpenStatesApi.Tests.TestData.CommitteeArray.json" );
+            // Act
+            var result = await client.CommitteeSearch(
+                state: State.PA, 
+                chamber: Chamber.Upper);
+            // Assert
+            var request = fakeHttpHandler.Request;
+            Assert.AreEqual(HttpMethod.Get, request.Method);
+            Assert.AreEqual("http://openstates.org/api/v1/committees/?state=PA&chamber=Upper&apikey=MyApiKey",
+                request.RequestUri.ToString());
+        }
+
+        [Test]
+        [ExpectedException(typeof (OpenStatesHttpException))]
+        public async void CommitteeSearch_ThrowsOpenStatesHttpException()
+        {
+            // Arrange
+            fakeResponse.Content =
+                GetContentFromEmbeddedJsonResource("OpenStatesApi.Tests.TestData.LegislatorArray.json");
+            fakeResponse.StatusCode = HttpStatusCode.BadRequest;
+            // Act
+            var result = await client.CommitteeSearch(
+                state: State.PA,
+                chamber: Chamber.Upper);
+            // Assert - should throw an OpenStatesHttpException
+        }
+
+        #endregion
+
+
         #region Test District Methods
 
         [Test]

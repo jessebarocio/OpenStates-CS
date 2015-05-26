@@ -72,6 +72,8 @@
     <EmbeddedResource Include="TestData\LegislatorArray.json" />
     <EmbeddedResource Include="TestData\DistrictSearch.json" />
     <EmbeddedResource Include="TestData\DistrictBoundary.json" />
+    <EmbeddedResource Include="TestData\CommitteeArray.json" />
+    <EmbeddedResource Include="TestData\Committee.json" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenStatesApi\OpenStatesApi.csproj">
