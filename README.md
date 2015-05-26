@@ -42,7 +42,7 @@ You will need an API key to work with the Open States API. One can be obtained f
 - ~~Metadata methods~~
 - Bill methods
 - ~~Legislator methods~~
-- ~~Committee methods~~ (thanks @pcopley)
+- ~~Committee methods~~ - (thanks [@pcopley](https://github.com/pcopley))
 - Event methods
 - ~~District methods~~
 
