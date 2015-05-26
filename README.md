@@ -36,12 +36,18 @@ You will need an API key to work with the Open States API. One can be obtained f
 		var districtBoundary = client.DistrictBoundaryLookup("sldl/ut-22");
     }
 
+
 ## What's left to do
 
 - ~~Metadata methods~~
 - Bill methods
 - ~~Legislator methods~~
-- Committee methods
+- ~~Committee methods~~ (thanks @pcopley)
 - Event methods
 - ~~District methods~~
 
+## NuGet
+
+This package is available on NuGet.
+
+    Install-Package OpenStates-CS

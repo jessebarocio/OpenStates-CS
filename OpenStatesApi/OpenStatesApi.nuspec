@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>OpenStates-CS</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Jesse Barocio</authors>
+    <owners>Jesse Barocio</owners>
+    <projectUrl>https://github.com/jessebarocio/OpenStates-CS</projectUrl>
+    <description>$description$</description>
+    <copyright>Copyright 2015</copyright>
+    <tags>OpenStates</tags>
+  </metadata>
+</package>
